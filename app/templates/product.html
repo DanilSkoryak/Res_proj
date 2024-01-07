@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block navigation %}
+    {% include 'nav.html' %}
+{% endblock navigation %}
+
+{% block content %}
+    {% for product in data %}
+    <ul>
+        <li><p>{{product}}</p></li>
+    </ul>
+    {% endfor %}
+{% endblock content %}

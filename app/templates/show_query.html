@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block navigation %}
+    {% include 'nav.html' %}
+{% endblock navigation %}
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        <fieldset>
+            <select name="Salesman">
+                {% for i in salesman %}
+                    <option value="{{i.id}}">{{i.name}}{{i.lastname}}</option>
+                {% endfor %}
+            </select>
+            <input type="radio" id="ShowAllClientsSalesman" name="choice" value="ShowAllClientsSalesman"> Показати усіх покупців заданого продавця; <br>
+            <input type="date" id="SalesDate" name="SalesDate">
+            <input type="radio" id="ShowAllSalesInDate" name="choice" value="ShowAllSalesInDate"> Показати усіх продажі для вказаної дати; <br>
+            <select name="ProductSalesman">
+                {% for p in product %}
+                    <option value="{{p.id}}">{{p.name}}</option>            
+                {% endfor %}
+            </select>
+            <input type="radio" id="ProductSellers" name="choice" value="ProductSellers"> Показати усіх продавців, які продали вказаний товар; <br>
+            <select name="ProductCustomer">
+                {% for p in product %}
+                    <option value="{{p.id}}">{{p.name}}</option>            
+                {% endfor %}
+            </select>
+            <input type="radio" id="ProductCustomers" name="choice" value="ProductCustomers"> Показати усіх покупців, які купили вказаний товар; <br>
+            <input type="date" id="SumOfDate" name="SumOfDate">
+            <input type="radio" id="SumDate" name="choice" value="SumDate"> Показати загальну суму продажу у вказаний день. <br>
+            <hr>
+            <input type="submit" value="Send">    
+        </fieldset>
+    </form>
+{% endblock content %}

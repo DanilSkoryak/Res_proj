@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block navigation %}
+    {% include 'nav.html' %}
+{% endblock navigation %}
+
+{% block content %}
+    <style>
+        label {
+            display: block;
+            text-align: left;
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        input, textarea {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            width: 300px; 
+        }
+
+        input[type="submit"] {
+            padding: 10px 100px; 
+            background-color: #4CAF50; 
+            color: #fff; 
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 0px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <label for="name">name</label>
+        <input type="text" name="name" id="name" placeholder="Name"><br><br>
+
+        <label for="lastname">lastName</label>
+        <input type="text" name="lastname" id="lastname" placeholder="Lastname"><br><br>
+
+        <label for="phone">phone</label>
+        <input type="text" name="phone" id="phone" placeholder="+38(097)33-74-264"><br><br>
+
+        <label for="email">email</label>
+        <input type="Email" name="email" id="email" placeholder="example@gmail.com"><br><br>
+
+        <label for="cash" style="display: block;">cash</label>
+        <input type="number" name="cash" id="cash" style="padding: 10px; width: 150px; border: 1px solid #ddd; border-radius: 5px; margin-bottom: 15px;" placeholder="200$"><br><br> 
+
+        <label for="date">date</label>
+        <input type="date" name="date" id="date" style="padding: 8px; border: 1px solid #ccc; border-radius: 4px; margin-top: 5px;" placeholder="15.12.2023"><br><br>
+
+
+        <label for="product_name" style="display: block;">product name</label>
+        <input type="text" name="product_name" id="product_name" style="padding: 10px; width: 300px; border: 1px solid #ddd; border-radius: 5px; margin-bottom: 15px;"><br><br>
+
+        <label for="description" style="display: block;">description</label>
+        <textarea name="description" id="description" style="padding: 10px; width: 300px; height: 150px; border: 1px solid #ddd; border-radius: 5px; margin-bottom: 15px;" placeholder="Some information about my product..."></textarea><br><br>
+        
+        <input type="submit" value="Add">
+    </form>
+{% endblock content %}

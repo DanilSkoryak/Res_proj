@@ -1,0 +1,184 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Management</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .header {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .navigation {
+            width: 200px;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            box-shadow: 5px 0 5px -5px #333;
+            transition: width 0.3s ease;
+        }
+
+        .content {
+            flex: 1;
+            padding: 20px;
+            background-color: #fff;
+            transition: margin-left 0.3s ease;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+        }
+
+        .navigation a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navigation a:hover {
+            background-color: #555;
+        }
+
+        .menu-toggle {
+            cursor: pointer;
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            font-size: 20px;
+            color: white;
+            display: none;
+        }
+
+        @media (max-width: 800px) {
+            .navigation {
+                width: 0;
+            }
+
+            .content {
+                margin-left: 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .container.active .navigation {
+                width: 200px;
+            }
+
+            .container.active .content {
+                margin-left: 200px;
+            }
+        }
+
+        .content {
+            transition: background-color 0.3s ease;
+            font-size: 16px;
+        }
+        
+        .content:hover {
+            background-color: rgb(232, 171, 79); 
+        }
+
+        .navigation a {
+            transition: color 0.3s ease;
+        }
+
+        .navigation a:hover {
+            color: orange;
+        }
+
+        .content {
+            background: url('http://cdn.wallpapersafari.com/13/6/Mpsg2b.jpg') no-repeat center center fixed;
+            padding: 20px;
+            border-radius: 10px; 
+            margin: 20px;
+            transition: background-color 0.3s ease; 
+        }
+        
+        form {
+            max-width: 400px; 
+            margin: 0 auto; 
+        }
+
+        label {
+            display: block; 
+            text-align: center;
+        }
+
+        input[type="text"],
+        input[type="email"] {
+            width: 100%;  
+            padding: 8px; 
+            margin-bottom: 10px; 
+            border: 1px solid #ccc; 
+            border-radius: 5px; 
+            box-sizing: border-box; 
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50; 
+            color: white; 
+            padding: 10px 100px; 
+            border: none;
+            border-radius: 5px; 
+            cursor: pointer;
+            margin-left: 85px;
+            margin-top: 15px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body> 
+
+    <div class="container" id="container">
+        <div class="navigation" id="navigation">
+            {% block navigation %}
+            {% endblock navigation %}
+        </div>
+
+        <div class="content" id="content">
+            {% block content %}
+            {% endblock content %}
+        </div>
+
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    </div>
+
+    <div class="footer">
+        &copy; Product Management
+    </div>
+
+    <script>
+        function toggleMenu() {
+            let container = document.getElementById('container');
+            container.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

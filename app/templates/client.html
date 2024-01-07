@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block navigation %}
+    {% include 'nav.html' %}
+{% endblock navigation %}
+
+{% block content %}
+    <p>{{client.name}}</p>
+    <p>{{client.lastname}}</p>
+    <p>{{client.phone}}</p>
+    <p>{{client.email}}</p>
+{% endblock content %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block navigation %}
+    {% include 'nav.html' %}
+{% endblock navigation %}
+
+{% block content %}
+    <p>{{data.name}}</p>
+    <p>{{data.lastname}}</p>
+    <p>{{data.phone}}</p>
+    <p>{{data.email}}</p>
+    <p>{{data.employment_date}}</p>
+    <p>{{data.position}}</p>
+{% endblock content %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="salesman-list">
+        <h2 style="text-align: center; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">List of Salesmen</h2>
+        <ul>
+            {% for salesman in data %}
+                <li class="salesman-item">
+                    <div class="salesman-info">
+                        <h3>{{ salesman.name }} {{ salesman.lastname }}</h3>
+                        <p>Cash: {{ salesman.position }}$</p>
+                        <p>Phone: {{ salesman.phone }}</p>
+                        <p>Email: {{ salesman.email }}</p>
+                        <p>Date: {{ salesman.employment_date }}</p>
+                    </div>
+                    <div class="product-list">
+                        <h4>Products:</h4>
+                        <ul>
+                            {% for product in salesman.products.all %}
+                                <li class="product-item">
+                                    <strong>{{ product.name }}</strong> - {{ product.description }}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock content %}

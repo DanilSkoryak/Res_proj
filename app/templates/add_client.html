@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block navigation %}
+    {% include 'nav.html' %}
+{% endblock navigation %}
+
+{% block content %}
+    <form action="" method="post">
+        {% csrf_token %}
+        <label for="user_name">name</label>
+        <input type="text" name="user_name" id="user_name" placeholder="Name"><br><br>
+        <label for="user_lastname">lastname</label>
+        <input type="text" name="user_lastname" id="user_lastname" placeholder="Lastname"><br><br>
+        <label for="user_phone">phone</label>
+        <input type="text" name="user_phone" id="user_phone" placeholder="+38(097)33-74-264"><br><br>
+        <label for="user_email">email</label>
+        <input type="Email" name="user_email" id="user_email" placeholder="example@gmail.com">
+        <input type="submit" value="Add"><br><br>
+    </form>
+{% endblock content %}
